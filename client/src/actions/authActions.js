@@ -2,11 +2,11 @@ import axios from 'axios';
 
 import { GET_ERRORS } from './types';
 
-export const registerUser = userData => dispatch => {
+export const registerUser = (userData, history) => dispatch => {
     axios
         .post("/api/users/register", userData)
         .then(res => {
-            console.log(res.data);
+            history.push("/login");
         })
         .catch(err => 
             dispatch({
