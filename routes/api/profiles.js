@@ -43,7 +43,7 @@ router.get('/all', (req, res) => {
     const errors = {};
 
     Profile.find()
-    .populate('user', ['name', 'avatar'])
+    .populate('user', ['name', 'avatar', 'email'])
     .then(profiles => {
         if(!profiles) {
             errors.noprofile = 'There are no profiles';
@@ -259,7 +259,7 @@ router.delete('/education/:id', passport.authenticate('jwt', { session: false })
 // @desc    Delete user and profile
 // @access  private
 router.delete('/', passport.authenticate('jwt', { session: false }), (req, res) => {
-    Profile.findOneAndUpdate({ user: req.user.id })
+    Profile.findOneAndRemove({ user: req.user.id })
         .then(() => {
             User.findOneAndRemove({ _id: req.user.id })
                 .then(() => res.json({ success: true}));
