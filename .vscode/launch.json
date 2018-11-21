@@ -5,9 +5,16 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Chrome",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}/client/src"
+        },
+        {
             "type": "node",
             "request": "launch",
-            "name": "Iniciar programa",
+            "name": "Node",
             "program": "${workspaceFolder}\\server.js"
         }
     ]
