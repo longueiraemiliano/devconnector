@@ -7,7 +7,7 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Chrome",
+            "name": "Launch Chrome",
             "url": "http://localhost:3000",
             "webRoot": "${workspaceFolder}/client/src"
         },
@@ -16,6 +16,14 @@
             "request": "launch",
             "name": "Node",
             "program": "${workspaceFolder}\\server.js"
-        }
+        },        
+        {
+            "name": "Attach Chrome",
+            "type": "chrome",
+            "request": "attach",
+            "port": 3000,
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}/client/src"
+        }    
     ]
 }
